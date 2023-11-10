@@ -1,11 +1,141 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Exposicion: Memorias de Kennedy</title>
-</head>
-<body>
-    <h1>Página en construcción</h1>
-    <p>Estará disponible proximamente :D</p>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#feed01" />
+    <title>Memorias de Kennedy | La Arquitectura como testigo silencioso.</title>
+
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <link rel="stylesheet" href="css/odometer.min.css" />
+    <link rel="stylesheet" href="css/fancybox.min.css" />
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="preloader" id="preloader">
+      <svg viewBox="0 0 1920 1080" preserveAspectRatio="none" version="1.1">
+        <path
+          d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,0 Z"
+        ></path>
+      </svg>
+      <div class="inner">
+        <canvas
+          class="progress-bar"
+          id="progress-bar"
+          width="200"
+          height="200"
+        ></canvas>
+        <figure><img src="images/Placa.png" alt="Image" /></figure>
+        <small>Cargando</small>
+      </div>
+      <!-- end inner -->
+    </div>
+    <!-- end preloder -->
+    <div class="page-transition">
+      <svg viewBox="0 0 1920 1080" preserveAspectRatio="none" version="1.1">
+        <path
+          d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,980 1294.66667,930 960,930 C625.333333,930 305.333333,980 0,1080 L0,0 Z"
+        ></path>
+      </svg>
+    </div>
+    <!-- end page-transition -->
+    <div class="smooth-scroll">
+      <div class="section-wrapper" data-scroll-section>
+        <aside class="side-widget">
+          <figure class="logo">
+            <img src="images/LogoColorMemoriasKennedy.png" alt="Image" />
+          </figure>
+          <!-- end logo -->
+        </aside>
+        <nav class="navbar">
+          <div class="logo">
+            <a href="index.html"> <img src="images/LogoColorMemoriasKennedy.png" alt="Image" /> </a>
+          </div>
+          <!-- end logo -->
+          <div class="navbar-button">
+            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=qNNG1hV7U0udkpgV_WJwLBNGoLM1jGpPi92y3CSr6dBURUg2SlBWNzBGT1ZOOE5BQ001NDIzQzVQSy4u" target="_blank">Evalúanos</a>
+          </div>
+          <!-- end navbar-button -->
+        </nav>
+        <!-- end navbar -->
+        <header class="slider">
+          <video autoplay loop>
+            <!-- Cambia "nombre_del_video.mp4" por la ruta de tu video -->
+            <source src="videos/video.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <div class="play-now">
+            <a
+              href="videos/video.mp4"
+              data-fancybox
+              data-width="640"
+              data-height="360"
+              class="play-btn"
+            ></a>
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="300px"
+              height="300px"
+              viewBox="0 0 300 300"
+              enable-background="new 0 0 300 300"
+              xml:space="preserve"
+            >
+              <defs>
+                <path
+                  id="circlePath"
+                  d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
+                />
+              </defs>
+              <circle cx="150" cy="100" r="75" fill="none" />
+              <g>
+                <use xlink:href="#circlePath" fill="none" />
+                <text>
+                  <textPath xlink:href="#circlePath">
+                    COMENZAR - COMENZAR - COMENZAR -
+                  </textPath>
+                </text>
+              </g>
+            </svg>
+          </div>
+          <!-- end play-now -->
+        </header>
+        <!-- end slider -->
+        <footer class="footer">
+          <div class="footer-bottom">
+            <div class="container">
+              <span class="copyright"
+                >© 2023 Memorias de Kennedy: La arquitectura como testigo silencioso.</span
+              >
+              <span class="creation"
+                >Presentado por: Julie Ibarra - Juan José Potes - Gelen Sastoque</span
+              >
+            </div>
+            <!-- end container -->
+          </div>
+          <!-- end footer-bottom -->
+        </footer>
+        <!-- end footer -->
+      </div>
+    </div>
+
+    <!-- JS FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/locomotive-scroll.min.js"></script>
+    <script src="js/kinetic-slider.js"></script>
+    <script src="js/fancybox.min.js"></script>
+    <script src="js/odometer.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
 </html>
