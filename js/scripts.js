@@ -1,3 +1,9 @@
+$(window).on('load', function () {
+  // Agrega el siguiente código para iniciar la reproducción del video
+  var miVideo = document.getElementById('miVideo');
+  miVideo.play();
+});
+
 (function ($) {
   $(document).ready(function () {
     "use strict";
@@ -59,8 +65,7 @@
         }
       }
     });
-
-
+    
     // TAB
     $(".tab-nav li").on('click', function (e) {
       $(".tab-item").hide();
@@ -256,7 +261,7 @@
     progressColor: '#ffffff',
     lineWidth: 2,
     lineCap: 'round',
-    preloaderAnimationDuration: 2100,
+    preloaderAnimationDuration: 1800,
     startDegree: -90,
     finalDegree: 270
   }

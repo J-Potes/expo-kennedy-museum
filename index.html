@@ -7,7 +7,9 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="theme-color" content="#feed01" />
-    <title>Memorias de Kennedy | La Arquitectura como testigo silencioso.</title>
+    <title>
+      Memorias de Kennedy | La Arquitectura como testigo silencioso.
+    </title>
 
     <!-- CSS FILES -->
     <link rel="stylesheet" href="css/fontawesome.min.css" />
@@ -49,31 +51,37 @@
       <div class="section-wrapper" data-scroll-section>
         <aside class="side-widget">
           <figure class="logo">
-            <img src="images/LogoColorMemoriasKennedy.png" alt="Image" />
+            <img src="images/LogoBlanco.png" alt="Image" />
           </figure>
           <!-- end logo -->
         </aside>
         <nav class="navbar">
           <div class="logo">
-            <a href="index.html"> <img src="images/LogoColorMemoriasKennedy.png" alt="Image" /> </a>
+            <a href="index.html">
+              <img id="logoImage" src="images/LogoBlanco.png" alt="Image" />
+            </a>
           </div>
           <!-- end logo -->
           <div class="navbar-button">
-            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=qNNG1hV7U0udkpgV_WJwLBNGoLM1jGpPi92y3CSr6dBURUg2SlBWNzBGT1ZOOE5BQ001NDIzQzVQSy4u" target="_blank">Evalúanos</a>
+            <a
+              href="https://forms.office.com/Pages/ResponsePage.aspx?id=qNNG1hV7U0udkpgV_WJwLBNGoLM1jGpPi92y3CSr6dBURUg2SlBWNzBGT1ZOOE5BQ001NDIzQzVQSy4u"
+              target="_blank"
+              >Evalúanos</a
+            >
           </div>
+
           <!-- end navbar-button -->
         </nav>
         <!-- end navbar -->
         <header class="slider">
-          <video autoplay loop>
-            <!-- Cambia "nombre_del_video.mp4" por la ruta de tu video -->
-            <source src="videos/video.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
+          <video controls autoplay muted id="miVideo">
+            <source id="miVideo" src="videos/video.mp4" type="video/mp4" />
           </video>
           <div class="play-now">
             <a
-              href="videos/video.mp4"
+              href="video.html"
               data-fancybox
+              data-type="iframe"
               data-width="640"
               data-height="360"
               class="play-btn"
@@ -101,7 +109,7 @@
                 <use xlink:href="#circlePath" fill="none" />
                 <text>
                   <textPath xlink:href="#circlePath">
-                    COMENZAR - COMENZAR - COMENZAR -
+                    COMENZAR - COMENZAR - COMENZAR
                   </textPath>
                 </text>
               </g>
@@ -114,10 +122,12 @@
           <div class="footer-bottom">
             <div class="container">
               <span class="copyright"
-                >© 2023 Memorias de Kennedy: La arquitectura como testigo silencioso.</span
+                >© 2023 Memorias de Kennedy: La arquitectura como testigo
+                silencioso.</span
               >
               <span class="creation"
-                >Presentado por: Julie Ibarra - Juan José Potes - Gelen Sastoque</span
+                >Presentado por: Julie Ibarra - Juan José Potes - Gelen
+                Sastoque</span
               >
             </div>
             <!-- end container -->
@@ -137,5 +147,58 @@
     <script src="js/odometer.min.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/scripts.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var video = document.getElementById("miVideo");
+        var playNowButton = document.querySelector(".play-now");
+        var logoImage = document.getElementById("logoImage");
+
+        video.addEventListener("timeupdate", function () {
+          // Verifica si el tiempo actual del video es mayor o igual a 2 minutos y 50 segundos
+          if (video.currentTime >= 172) {
+            logoImage.src = "images/LogoColor.png";
+          }
+          if (video.currentTime >= 170) {
+            // Muestra el div play-now
+            playNowButton.style.opacity = "1";
+            playNowButton.style.pointerEvents = "auto"; // Reactiva eventos en el div
+            logoImage.src = "images/LogoColor.png";
+          
+          } else {
+            // Oculta el div play-now
+            playNowButton.style.opacity = "0";
+            playNowButton.style.pointerEvents = "none"; // Desactiva eventos en el div
+          }
+        });
+
+        // Agrega una clase para activar la transición en CSS
+        playNowButton.style.transition = "opacity 3s ease-in-out";
+        logoImage.style.transition = "opacity 3s ease-in-out";
+
+        // Desmutear el video después de 2 segundos
+        video.addEventListener("timeupdate", function () {
+          if (video.currentTime >= 2) {
+            video.muted = false;
+          }
+
+          // Cambiar opacidad desde el minuto 2:50 hasta el final
+          var startTime = 2 * 60 + 50; // 2 minutos y 50 segundos
+          var endTime = 2 * 60 + 53; // Duración total del video
+
+          if (video.currentTime >= startTime && video.currentTime <= endTime) {
+            // Ajusta la opacidad según el progreso del tiempo
+            var opacity =
+              1 - (video.currentTime - startTime) / (endTime - startTime);
+            video.style.opacity = opacity;
+          }
+
+          // Ocultar el video cuando llega al minuto 2:53
+          if (video.currentTime >= endTime) {
+            video.style.display = "none";
+          }
+        });
+      });
+    </script>
   </body>
 </html>
