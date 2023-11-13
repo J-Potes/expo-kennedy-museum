@@ -154,12 +154,13 @@
           // Verifica si el tiempo actual del video es mayor o igual a 2 minutos y 50 segundos
           if (video.currentTime >= 172) {
             logoImage.src = "images/LogoColor.png";
+            logoImage.style.transition = "opacity 3s ease-in-out";
           }
           if (video.currentTime >= 170) {
             // Muestra el div play-now
             playNowButton.style.opacity = "1";
             playNowButton.style.pointerEvents = "auto"; // Reactiva eventos en el div
-            logoImage.src = "images/LogoColor.png";
+            playNowButton.style.transition = "opacity 3s ease-in-out";
           
           } else {
             // Oculta el div play-now
@@ -167,10 +168,7 @@
             playNowButton.style.pointerEvents = "none"; // Desactiva eventos en el div
           }
         });
-
-        // Agrega una clase para activar la transición en CSS
-        playNowButton.style.transition = "opacity 3s ease-in-out";
-        logoImage.style.transition = "opacity 3s ease-in-out";
+        
 
         // Desmutear el video después de 2 segundos
         video.addEventListener("timeupdate", function () {
