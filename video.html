@@ -13,17 +13,6 @@
       Memorias de Kennedy | La Arquitectura como testigo silencioso.
     </title>
 
-    <!-- Desactivar AR en dispositivos móviles -->
-    <script>
-      if (AFRAME.utils.device.isMobile()) {
-        AFRAME.registerComponent("ar-disable", {
-          init: function () {
-            this.el.sceneEl.removeAttribute("arjs");
-          },
-        });
-      }
-    </script>
-
     <!-- CSS FILES -->
     <link rel="stylesheet" href="css/fontawesome.min.css" />
     <link rel="stylesheet" href="css/odometer.min.css" />
