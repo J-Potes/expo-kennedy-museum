@@ -926,7 +926,7 @@ button[type="submit"] i {
 /* SLIDER */
 .slider {
   width: 100%;
-  height: 100vh;
+  height: 86vh;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1703,6 +1703,11 @@ video {
     left: 33%;
   }
 }
+@media only screen and (max-width: 770px), only screen and (max-device-width: 770px) {
+  .slider {
+    height: 80vh;
+  }
+}
 /* RESPONSIVE MOBILE */
 @media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
   .preloader {
@@ -2042,6 +2047,11 @@ video {
   .play-now {
     left: 18%;
   }
+}
+@media only screen and (max-width: 580px), only screen and (max-device-width: 580px) {
+  .footer .footer-bottom {
+    padding: 39px;
+}
 }
 @media only screen and (max-width: 450px), only screen and (max-device-width: 450px) {
   .play-now {
