@@ -9,7 +9,20 @@
     <meta name="theme-color" content="#feed01" />
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@%5E4.0.0/dist/aframe-event-set-component.min.js"></script>
-    <title>Memorias de Kennedy | La Arquitectura como testigo silencioso.</title>
+    <title>
+      Memorias de Kennedy | La Arquitectura como testigo silencioso.
+    </title>
+
+    <!-- Desactivar AR en dispositivos móviles -->
+    <script>
+      if (AFRAME.utils.device.isMobile()) {
+        AFRAME.registerComponent("ar-disable", {
+          init: function () {
+            this.el.sceneEl.removeAttribute("arjs");
+          },
+        });
+      }
+    </script>
 
     <!-- CSS FILES -->
     <link rel="stylesheet" href="css/fontawesome.min.css" />
@@ -57,125 +70,176 @@
         </aside>
         <nav class="navbar">
           <div class="logo">
-            <a href="index.html"> <img src="images/LogoColor.png" alt="Image" /> </a>
+            <a href="index.html">
+              <img src="images/LogoColor.png" alt="Image" />
+            </a>
           </div>
           <!-- end logo -->
           <div class="navbar-button">
-            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=qNNG1hV7U0udkpgV_WJwLBNGoLM1jGpPi92y3CSr6dBURUg2SlBWNzBGT1ZOOE5BQ001NDIzQzVQSy4u" target="_blank">Evalúanos</a>
+            <a
+              href="https://forms.office.com/Pages/ResponsePage.aspx?id=qNNG1hV7U0udkpgV_WJwLBNGoLM1jGpPi92y3CSr6dBURUg2SlBWNzBGT1ZOOE5BQ001NDIzQzVQSy4u"
+              target="_blank"
+              >Evalúanos</a
+            >
           </div>
           <!-- end navbar-button -->
         </nav>
         <!-- end navbar -->
-        <a-scene class="slider">
-      
-            <a-assets>
-              <img id="Textura1" src="https://julieib03.github.io/Electiva-UI/logoGreenRide.png">
-              <img id="TexturaPiso" src="https://julieib03.github.io/Electiva-UI/lamina-piso.jpg">
-              <img id="TexturaCielo" src="https://julieib03.github.io/Electiva-UI/autoshop_01_4k.jpg">
-              <img id="Textura2" src="https://julieib03.github.io/Electiva-UI/tree-576847_1280.png">
-              
-              <a-asset-item id="CarroBlancoTx" src="https://julieib03.github.io/Electiva-UI/carroBlanco.gltf"></a-asset-item>
-              <a-asset-item id="CarroVerdeTx" src="https://julieib03.github.io/Electiva-UI/carroVerde.gltf"></a-asset-item>
-              <a-asset-item id="CarroMoradoTx" src="https://julieib03.github.io/Electiva-UI/carroMorado.gltf"></a-asset-item>
-              
-              
-              
-              <a-mixin id="Dodecaedro" geometry="primitive: dodecahedron"></a-mixin>
-              <a-mixin id="Naranja" material="color:orange">
-              </a-mixin>
-            </a-assets>
-            
-            /*Camara*/
-            
-            <a-entity position="0 0 0" look-controls cursor="rayOrigin:mouse">
-              <a-camera camera>
+
+        <a-scene ar-disable style="height: 86vh;">
+          <a-assets>
+            <img
+              id="Textura1"
+              src="https://julieib03.github.io/Electiva-UI/logoGreenRide.png"
+            />
+            <img
+              id="TexturaPiso"
+              src="https://julieib03.github.io/Electiva-UI/lamina-piso.jpg"
+            />
+            <img
+              id="TexturaCielo"
+              src="https://julieib03.github.io/Electiva-UI/autoshop_01_4k.jpg"
+            />
+            <img
+              id="Textura2"
+              src="https://julieib03.github.io/Electiva-UI/tree-576847_1280.png"
+            />
+
+            <a-asset-item
+              id="CarroBlancoTx"
+              src="https://julieib03.github.io/Electiva-UI/Casa_Etapa1.gltf"
+            ></a-asset-item>
+            <a-asset-item
+              id="CarroVerdeTx"
+              src="https://julieib03.github.io/Electiva-UI/carroVerde.gltf"
+            ></a-asset-item>
+            <a-asset-item
+              id="CarroMoradoTx"
+              src="https://julieib03.github.io/Electiva-UI/carroMorado.gltf"
+            ></a-asset-item>
+          </a-assets>
+
+          /*Camara*/
+
+          <a-entity position="0 0.9 1.5" cursor="rayOrigin:mouse" rotation="-20 0 0">
+            <a-camera camera>
               <a-cursor></a-cursor>
-              </a-camera>
-            </a-entity>
-            
-            /*Carro*/
+            </a-camera>
+          </a-entity>
+
+          /*Etapas*/
+          <a-entity
+            id="CarroBlanco"
+            gltf-model="#CarroBlancoTx"
+            position="-3.5 0 -6"
+            rotation="0 0 0"
+            scale="1 1 1"
+            visible="true"
+          >
+          </a-entity>
+          <a-entity
+            id="CarroVerde"
+            gltf-model="#CarroVerdeTx"
+            position="0 0.1 -2.7"
+            rotation="0 90 0"
+            scale="0.05 0.05 0.05"
+            visible="false"
+          >
+          </a-entity>
+          <a-entity
+            id="CarroMorado"
+            gltf-model="#CarroMoradoTx"
+            position="0 0.1 -2.7"
+            rotation="0 90 0"
+            scale="0.05 0.05 0.05"
+            visible="false"
+          >
+          </a-entity>
+          /*Piso*/
+          <a-box
+            position="0 0 -3"
+            rotation="0 0 0"
+            color="#7C5B3C"
+            scale="6 0.1 3"
+            event-set__enter="_event:mouseenter; color: #6b2a3d;"
+            event-set__leave="_event:mouseleave; color: #7C5B3C;"
+          >
+          </a-box>
+          /*Botones*/
+          <a-cylinder
+            id="Boton1"
+            position="-1 0 -1"
+            rotation="0 45 0"
+            color="#EBF2EE"
+            scale="0.2 0.1 0.2"
+          >
+          </a-cylinder>
+          <a-cylinder
+            id="Boton2"
+            position="-0.5 0 -1"
+            rotation="0 45 0"
+            color="#B8F2B6"
+            scale="0.2 0.1 0.2"
+          >
+          </a-cylinder>
+          <a-cylinder
+            id="Boton3"
+            position="0 0 -1"
+            rotation="0 45 0"
+            color="#C9BDF2"
+            scale="0.2 0.1 0.2"
+          ></a-cylinder>
+          <a-cylinder
+            id="Boton4"
+            position="0.5 0 -1"
+            rotation="0 45 0"
+            color="#C9BDF2"
+            scale="0.2 0.1 0.2"
+          ></a-cylinder>
+          <a-cylinder
+            id="Boton5"
+            position="1 0 -1"
+            rotation="0 45 0"
+            color="#C9BDF2"
+            scale="0.2 0.1 0.2"
+          ></a-cylinder>
+          <a-box
+            src="#Textura1"
+            position="0 1.25 -5"
+            event-set__enter="_event:mouseenter; _target:#Texto; visible:true"
+            event-set__leave="_event:mouseleave;_target:#Texto; visible:false"
+          >
             <a-entity
-              id="CarroBlanco"
-              gltf-model="#CarroBlancoTx"
-              position="0 0.1 -2.7"
-              rotation="0 90 0"
-              scale="0.05 0.05 0.05"
-              visible="true">
-            </a-entity>
-            <a-entity
-              id="CarroVerde"
-              gltf-model="#CarroVerdeTx"
-              position="0 0.1 -2.7"
-              rotation="0 90 0"
-              scale="0.05 0.05 0.05"
-              visible="false">
-            </a-entity>
-            <a-entity
-              id="CarroMorado"
-              gltf-model="#CarroMoradoTx"
-              position="0 0.1 -2.7"
-              rotation="0 90 0"
-              scale="0.05 0.05 0.05"
-              visible="false">
-            </a-entity>
-            
-            <a-cylinder 
-                   position="0 0 -3" 
-                   rotation="0 45 0" 
-                   color="#7C5B3C"
-                   scale="1.5 0.1 1.5"
-                   event-set__enter="_event:mouseenter; color: #6b2a3d;"
-                   event-set__leave="_event:mouseleave; color: #7C5B3C;">
-            </a-cylinder>
-            <a-cylinder 
-                   id="Boton1"
-                   position="-0.5 0 -1" 
-                   rotation="0 45 0" 
-                   color="#EBF2EE"
-                   scale="0.2 0.1 0.2">
-            </a-cylinder>
-            <a-cylinder
-                   id="Boton2"
-                   position="0 0 -1" 
-                   rotation="0 45 0" 
-                   color="#B8F2B6"
-                   scale="0.2 0.1 0.2">
-            </a-cylinder>
-            <a-cylinder 
-                   id="Boton3"
-                   position="0.5 0 -1" 
-                   rotation="0 45 0" 
-                   color="#C9BDF2"
-                   scale="0.2 0.1 0.2">
-            </a-cylinder>
-            <a-box 
-                      src="#Textura1"
-                      position="0 1.25 -5"
-                      event-set__enter="_event:mouseenter; _target:#Texto; visible:true"
-                      event-set__leave="_event:mouseleave;_target:#Texto; visible:false">
-              <a-entity id="Texto" text="value: Green Ride Rentals;  color: #73B71C; font-weight: bold; background: #ffffff" scale="9 9 9" visible="false" position="2.7 1 0" ></a-entity>
-            </a-box>
-            
-            <a-sky src="#TexturaCielo" color="#ECECEC"></a-sky>
-          </a-scene>
+              id="Texto"
+              text="value: Green Ride Rentals;  color: #73B71C; font-weight: bold; background: #ffffff"
+              scale="9 9 9"
+              visible="false"
+              position="2.7 1 0"
+            ></a-entity>
+          </a-box>
+
+          
+        </a-scene>
+
         
-        <!-- end slider -->
-        <footer class="footer">
-          <div class="footer-bottom">
-            <div class="container">
-              <span class="copyright"
-                >© 2023 Memorias de Kennedy: La arquitectura como testigo silencioso.</span
-              >
-              <span class="creation"
-                >Presentado por: Julie Ibarra - Juan José Potes - Gelen Sastoque</span
-              >
-            </div>
-            <!-- end container -->
-          </div>
-          <!-- end footer-bottom -->
-        </footer>
         <!-- end footer -->
       </div>
+      <footer class="footer">
+        <div class="footer-bottom">
+          <div class="container">
+            <span class="copyright"
+              >© 2023 Memorias de Kennedy: La arquitectura como testigo
+              silencioso.</span
+            >
+            <span class="creation"
+              >Presentado por: Julie Ibarra - Juan José Potes - Gelen
+              Sastoque</span
+            >
+          </div>
+          <!-- end container -->
+        </div>
+        <!-- end footer-bottom -->
+      </footer>
     </div>
 
     <!-- JS FILES -->
@@ -187,5 +251,6 @@
     <script src="js/odometer.min.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/scene.js"></script>
   </body>
 </html>
