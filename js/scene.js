@@ -5,14 +5,6 @@ const boton1 = document.querySelector("#Boton1");
 const boton2 = document.querySelector("#Boton2");
 const boton3 = document.querySelector("#Boton3");
 
-if (AFRAME.utils.device.isMobile()) {
-    AFRAME.registerComponent("ar-disable", {
-      init: function () {
-        this.el.sceneEl.removeAttribute("arjs");
-      },
-    });
-}
-
 boton1.addEventListener("click", function () {
   carroBlanco.setAttribute("visible", true);
   carroVerde.setAttribute("visible", false);
