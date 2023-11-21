@@ -736,7 +736,6 @@ button[type="submit"] i {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   padding: 30px 60px;
   position: absolute;
   left: 0;
@@ -922,6 +921,9 @@ button[type="submit"] i {
   color: #fff;
 }
 
+.botones{
+  display: flex;
+}
 
 /* SLIDER */
 .slider {
